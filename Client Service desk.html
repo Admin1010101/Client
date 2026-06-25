@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotech Healthcare Inc. - Enterprise Technical Operations & Support Master Runbook</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f7fafc;
+        }
+        .document-container {
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .header-block {
+            background-color: #1a365d;
+            color: white;
+            padding: 35px;
+            border-radius: 6px;
+            margin-bottom: 35px;
+        }
+        .header-block h1 { margin: 0; font-size: 26pt; letter-spacing: -0.5px; text-transform: uppercase; }
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+            font-size: 10.5pt;
+            border-top: 1px solid #2c5282;
+            padding-top: 15px;
+        }
+        h2 { color: #2c5282; font-size: 18pt; border-bottom: 2px solid #edf2f7; padding-bottom: 8px; margin-top: 40px; text-transform: uppercase; }
+        h3 { color: #2b6cb0; font-size: 13pt; margin-top: 25px; border-left: 4px solid #2b6cb0; padding-left: 10px; }
+        p, li { font-size: 11pt; text-align: justify; }
+        ul { padding-left: 22px; }
+        li { margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 10.5pt; }
+        th, td { border: 1px solid #e2e8f0; padding: 14px; text-align: left; vertical-align: top; }
+        th { background-color: #2b6cb0; color: white; font-weight: 600; text-transform: uppercase; font-size: 9.5pt; letter-spacing: 0.5px; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        .callout-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 18px;
+            margin: 25px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 10.5pt;
+        }
+        .diagram-box {
+            background-color: #f7fafc;
+            border: 1px dashed #cbd5e0;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 25px 0;
+            white-space: pre-wrap;
+            font-size: 10pt;
+            color: #2d3748;
+            line-height: 1.5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-container">
+    <div class="header-block">
+        <h1>TECHNICAL REQUISITION & SYSTEM OPERATION MASTER BLUEPRINT</h1>
+        <div class="metadata-grid">
+            <div><strong>Document Control ID:</strong> Rotech-SYS-2026-OM4</div>
+            <div><strong>Classification:</strong> Internal Confidential / Operational Blueprint</div>
+            <div><strong>Client Name:</strong> Rotech Healthcare Inc.</div>
+            <div><strong>Effective Date:</strong> June 25, 2026</div>
+        </div>
+    </div>
+
+    <h2>SECTION 1: ENTERPRISE TECHNOLOGY INFRASTRUCTURE</h2>
+    <h3>1.1 Architectural Overview</h3>
+    <p>Rotech Healthcare Inc. operates an enterprise-grade cloud and on-premises infrastructure engineered to service over 300 clinical logistics locations nationwide. The ecosystem is explicitly designed to decouple public-facing engagement layers from critical back-office transactional applications, ensuring continuous business availability, high data velocity, and rigid compliance with federal data security frameworks[cite: 1].</p>
+    
+    <h3>1.2 Consolidated Technology Stack Matrix</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Functional Layer</th>
+                <th>Primary Technology Platform</th>
+                <th>Core Operational Scope</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Enterprise CRM</strong></td>
+                <td>Salesforce Enterprise Suite</td>
+                <td>Centralized coordination of clinician referral pipelines, active patient data management, and outbound logistics workflows.</td>
+            </tr>
+            <tr>
+                <td><strong>Enterprise ERP</strong></td>
+                <td>Infor Lawson Financial Suite</td>
+                <td>Central account clearing, general ledger management, asset inventory tracking, and electronic vendor payments[cite: 1].</td>
+            </tr>
+            <tr>
+                <td><strong>Middleware Orchestration</strong></td>
+                <td>MuleSoft Anypoint Platform</td>
+                <td>Exclusive enterprise service bus (ESB) managing API-led data pipelines between Salesforce and the ERP core[cite: 1].</td>
+            </tr>
+            <tr>
+                <td><strong>Cloud Telephony / CTI</strong></td>
+                <td>Cisco Webex Cloud Contact Center</td>
+                <td>National call queueing, IVR menus, and direct embedded softphone widget connectivity within Salesforce[cite: 1].</td>
+            </tr>
+            <tr>
+                <td><strong>Patient & Clinician Portals</strong></td>
+                <td>Salesforce Experience Cloud</td>
+                <td>Secured external web interfaces for physician diagnostic uploads, order status inquiries, and billing management.</td>
+            </tr>
+            <tr>
+                <td><strong>Public Corporate Site</strong></td>
+                <td>Rotech Main Web Architecture</td>
+                <td>Frontend brand presence and localized service directory hosted at <code>https://www.rotech.com</code>.</td>
+            </tr>
+            <tr>
+                <td><strong>Talent Acquisition (ATS)</strong></td>
+                <td>iCIMS Recruit Framework</td>
+                <td>Core candidate tracking pipeline, applicant lifecycle management, and public career board integration.</td>
+            </tr>
+            <tr>
+                <td><strong>Identity Management</strong></td>
+                <td>Active Directory & Azure SSO</td>
+                <td>Strict corporate role-based access controls (RBAC) and Multi-Factor Authentication (MFA) enforcement.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>SECTION 2: PORTS, WEB ARCHITECTURES, & CHANNELS</h2>
+    <h3>2.1 Public & Authenticated Web Environments</h3>
+    <ul>
+        <li><strong>Corporate Web Gateway:</strong> <code>https://www.rotech.com</code> serves as the primary external presentation tier. Triage is limited to content delivery network (CDN) accessibility checks and verifying regional referral locator tools.</li>
+        <li><strong>The Rotech Patient Portal:</strong> Managed via Salesforce Experience Cloud, this secure system allows patients to manage their home medical equipment orders, update supply timelines, and handle out-of-pocket invoice balances.</li>
+        <li><strong>Physician Referral Portal:</strong> An encrypted clinician portal designed for doctors and hospital coordinators to submit incoming oxygen, sleep apnea, or complex medical equipment prescriptions directly into the Salesforce pipeline.</li>
+    </ul>
+
+    <h3>2.2 Internal Collaboration & Real-Time Chat Infrastructure</h3>
+    <p>Rotech utilizes a dual-layer messaging framework for internal operations, divided by functional context:</p>
+    <ul>
+        <li><strong>Operational & Collaboration Messaging (Salesforce Chatter / Slack):</strong> Directly embedded alongside customer records to allow case tracking, logistics hand-offs, and compliance reviews.</li>
+        <li><strong>Unified Communications Chat (Cisco Webex App):</strong> The primary chat network for real-time peer-to-peer and group messaging across clinical and customer service divisions[cite: 1].
+            <ul>
+                <li><em>Support Scope:</em> L1/L2 teams handle configuration issues, single sign-on (SSO) login loops, persistent notification blocks, and room provisioning. They do not handle direct chat history database restores.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>SECTION 3: TIER 1 & TIER 2 SUPPORT SCOPE OF WORK</h2>
+    <h3>3.1 Statement of Purpose</h3>
+    <p>Rotech Healthcare Inc. utilizes a tiered Managed Service Provider (MSP) framework to handle day-to-day platform variations, clear transactional blockages, and maximize uptime across the Salesforce, MuleSoft, and Webex integrated stack[cite: 1]. Support teams must operate strictly within their defined technical boundaries.</p>
+
+    <h3>3.2 Tier 1 (L1) Technical Scope</h3>
+    <p>The L1 Help Desk provides first-contact triage and routine system maintenance. Their operational boundaries are confined to standard administrative setup menus and end-user interface screens.</p>
+    <ul>
+        <li><strong>Identity & MFA Administration:</strong> Manually resolving password lockouts, clearing frozen directory profiles, and forcing software or hardware token re-synchronizations within Salesforce Setup.</li>
+        <li><strong>Downstream Provisioning Checks:</strong> Auditing basic platform entrance flags to ensure user changes originating from iCIMS have properly propagated into Active Directory.</li>
+        <li><strong>CTI Telephony & Chat Triage:</strong> Resolving localized browser audio device conflicts, hardware headset mappings, and widget panel synchronization errors on the embedded Cisco Webex container. Handling basic Webex App chat login or notification errors.</li>
+        <li><strong>Portal Navigation Assistance:</strong> Assisting external clinic administrators or patients with initial portal registration loops and temporary password generation.</li>
+    </ul>
+
+    <h3>3.3 Tier 2 (L2) Technical Scope</h3>
+    <p>The L2 Application Administration team handles non-code system configuration changes, log evaluation, and advanced structural diagnostics.</p>
+    <ul>
+        <li><strong>Access Matrix Auditing:</strong> Resolving user-escalated "insufficient access" or field-level formatting blocks by deep-diving into profile sharing rules, permission set groups, and role hierarchies.</li>
+        <li><strong>Middleware Logging Diagnostics:</strong> Utilizing the MuleSoft Anypoint runtime console to investigate data stream exceptions between Salesforce CRM and the Infor Lawson ERP database[cite: 1]. L2 must isolate payload failures caused by missing parameters (e.g., incomplete clinical metadata or blank ICD-10 medical codes).</li>
+        <li><strong>Experience Cloud Portal Administration:</strong> Managing portal user licenses, modifying declarative layout components on the Physician Portal, and adjusting automated notification configurations for patient accounts.</li>
+        <li><strong>Data Integrity & Deduplication:</strong> Managing matching rules to identify and merge duplicate physician referral files or corporate customer accounts without breaking historical audit logs or transactional lineages[cite: 1].</li>
+    </ul>
+
+    <h2>SECTION 4: STEP-BY-STEP OPERATIONAL RUNBOOK</h2>
+    <p>This operational runbook sets out the required diagnostic steps that support technicians must complete before any ticket can be passed upwards or returned to internal engineering teams.</p>
+
+    <div class="diagram-box">                  [INCOMING SERVICE DESK TICKET]
+                                │
+                                ▼
+         ┌──────────────────────────────────────────────┐
+         │     TIER 1 (L1) MANDATORY WORKFLOW TRIAGE    │
+         └──────────────────────────────────────────────┘
+                                │
+         ├── Step 1: Execute Identity / Status Reset in AD/Salesforce
+         ├── Step 2: Force Browser Cache Clear & Test in Incognito Mode
+         ├── Step 3: Run Scope Analysis (Single-User vs. Global Incident)
+         └── Step 4: Verify Local Browser Audio/Chat Profiles for Webex
+                                │
+                                ▼
+                 Is the ticket resolved within 30 mins?
+                    ├── YES ──► Log actions & close ticket.
+                    └── NO  ──► Execute L1 to L2 Hand-off Checklist.
+                                │
+                                ▼
+         ┌──────────────────────────────────────────────┐
+         │     TIER 2 (L2) DEEP DIAGNOSTIC WORKFLOW     │
+         └──────────────────────────────────────────────┘
+                                │
+         ├── Protocol A: Access Log Audit (Profile/Sharing Rules check)
+         ├── Protocol B: MuleSoft Exception Log Payload Extraction
+         ├── Protocol C: Portal User Permissions & Layout Verification
+         └── Protocol D: Record Deduplication & Database Remapping
+                                │
+                                ▼
+               Has an Escalation Threshold been crossed?
+                    ├── Spent &gt; 2 Hours troubleshooting metadata?
+                    ├── Root cause requires programmatic Apex code/LWC?
+                    └── Root cause requires structural ERP schema changes?
+                                │
+                                ▼
+                  [ESCALATE TO TIER 3 ENGINEERING]</div>
+
+    <h3>4.1 Tier 1 (L1) Diagnostic Steps</h3>
+    <ol>
+        <li><strong>Identity Verification:</strong> Look up the user's login history in Salesforce. Check if the corporate account is flagged as active in Active Directory. Reset the user's password, unlock the account, and re-sync their active MFA application token.</li>
+        <li><strong>Environment Isolation:</strong> Instruct the end-user (or portal guest) to log completely out of all sessions. Have them open a clean Chrome Incognito window. If the issue disappears, coordinate a full clear of the user's browser cache, cookies, and conflicting temporary web parameters.</li>
+        <li><strong>Scope Assessment:</strong> Cross-reference active incoming ticket queues. Determine if the error is unique to the user's profile, or if multiple external physicians or field workers across the same regional hub are experiencing identical system behavior.</li>
+        <li><strong>CTI & Chat Verification:</strong> Confirm that the browser application has explicit permissions to access the local system headset microphone. For chat sync errors, verify that the user's Webex desktop client application is fully authenticated and running on the local OS layer.</li>
+    </ol>
+
+    <h3>4.2 Tier 2 (L2) Diagnostic Steps</h3>
+    <ol>
+        <li><strong>Permission Auditing:</strong> Use the "Log In As" feature to replicate the user's view. Verify if the error is caused by missing permission sets, implicit role hierarchy blockages, or field-level data restrictions.</li>
+        <li><strong>Portal Member Triage:</strong> Check if a locked-out physician account has been disabled due to mismatched NPI (National Provider Identifier) data. Re-verify the portal profile and update sharing sets to re-establish secure health document visibility.</li>
+        <li><strong>MuleSoft Payload Tracing:</strong> Locate the transaction ID within MuleSoft Anypoint Monitoring. Extract the failed JSON/XML payload. Identify the structural formatting variance causing the Infor Lawson database to reject the sync transaction[cite: 1]. If necessary, manually correct the data field in Salesforce to re-trigger the automated sync pipeline.</li>
+    </ol>
+
+    <h2>SECTION 5: SERVICE LEVEL AGREEMENTS & ESCALATION</h2>
+    <h3>5.1 Tier Support Matrix</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Support Layer</th>
+                <th>System Competency</th>
+                <th>Allowable Time Window</th>
+                <th>Mandatory Escalation Gate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tier 1 (L1)</strong></td>
+                <td>Identity management, device isolation, basic portal navigation, and Webex client/chat configuration.</td>
+                <td>Max <strong>30 minutes</strong> inside L1 queue before mandatory routing.</td>
+                <td>Must document browser test results and user's Active Directory status before escalating.</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 2 (L2)</strong></td>
+                <td>Permission modifications, dashboard creation, portal license management, record deduplication, and MuleSoft tracking[cite: 1].</td>
+                <td>Max <strong>2 hours</strong> active analysis time per structural issue.</td>
+                <td>Must attach extracted MuleSoft logs, chat error captures, or profile permission matrix audits.</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 3 (L3)</strong></td>
+                <td>Core programmatic Apex, custom LWCs, portal architecture changes, and ERP system schema updates.</td>
+                <td>Hotfix specific based on incident severity.</td>
+                <td>Handled by internal platform architects and code development engineers.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>5.2 Handback & Escalation Directory</h3>
+    <p>If an operational issue crosses an L2 threshold, it must be updated with all diagnostic logs and routed directly via the following channels:</p>
+    <ul>
+        <li><strong>Tier 3 Code Engineering:</strong> Route here if the root cause is isolated to custom Apex Trigger runtime faults or broken JavaScript elements within a Lightning Web Component (LWC) deployed to the Physician Portal.</li>
+        <li><strong>Tier 3 Integration Engineering:</strong> Route here if the integration failure requires rewriting core MuleSoft mapping logic, re-architecting data endpoints, or patching database structural changes inside Infor Lawson.</li>
+        <li><strong>Security & Corporate Compliance:</strong> Route instantly if triage efforts expose potential data leaks, unexpected user access to protected health variables (PHI), or unlogged administrative modifications[cite: 1].</li>
+    </ul>
+</div>
+
+</body>
+</html>
